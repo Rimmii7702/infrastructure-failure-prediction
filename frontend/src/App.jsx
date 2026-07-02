@@ -14,14 +14,15 @@ function App() {
   const predictFailure = async () => {
 
     const response = await axios.post(
-      "http://127.0.0.1:8000/predict",
-      {
-        cpu,
-        memory,
-        disk,
-        temperature,
-        network
-      }
+  "https://infrastructure-failure-prediction.onrender.com/predict",
+  {
+    cpu: Number(cpu),
+    memory: Number(memory),
+    disk: Number(disk),
+    temperature: Number(temperature),
+    network: Number(network),
+  }
+
     );
 
     setPrediction(
