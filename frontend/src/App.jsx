@@ -14,7 +14,7 @@ function App() {
   const predictFailure = async () => {
 
     const response = await axios.post(
-  "https://infrastructure-failure-prediction.onrender.com/predict",
+  "https://infrastructure-failure-prediction-2.onrender.com/predict",
   {
     cpu: Number(cpu),
     memory: Number(memory),
