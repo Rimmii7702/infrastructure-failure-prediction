@@ -1,69 +1,63 @@
-# infrastructure-failure-prediction
-Full-stack machine learning platform that predicts server failures from infrastructure telemetry data using React, FastAPI, and XGBoost. Provides real-time failure risk analysis and explainable insights through an interactive dashboard.
-# Predictive Server Failure System
+Predictive Server Failure System
 
-A full-stack machine learning platform that predicts server failures using infrastructure telemetry data.
+A machine learning app that estimates the probability of a server or infrastructure failure from live telemetry — CPU load, memory usage, disk usage, temperature, and network traffic. Feed it a snapshot of system stats and it returns a failure probability in real time.
 
-## Features
+Built as a full-stack project: a React dashboard on the frontend, a FastAPI service on the backend, and an XGBoost model doing the actual prediction.
 
-- Real-time failure prediction
-- React dashboard
-- FastAPI backend
-- XGBoost classification model
-- Infrastructure telemetry analysis
-- Explainable AI with feature importance
+Demo
 
-## Tech Stack
 
-### Frontend
-- React
-- Axios
-- Vite
+Frontend: https://infrastructure-failure-prediction-1.onrender.com/
+Backend API docs (Swagger): https://infrastructure-failure-prediction-2.onrender.com/docs
 
-### Backend
-- FastAPI
-- Pandas
-- XGBoost
-- Scikit-Learn
 
-## Telemetry Inputs
+What it does
 
-- CPU Utilization
-- Memory Utilization
-- Disk Usage
-- Temperature
-- Network Throughput
 
-## Example Prediction
+Takes telemetry input and predicts failure probability
+Shows which features are driving each prediction (feature importance)
+Interactive dashboard for entering values and viewing results
+REST API with auto-generated Swagger docs
 
-| Metric | Value |
-|----------|----------|
-| CPU | 95% |
-| Memory | 90% |
-| Temperature | 88°C |
 
-Predicted Failure Probability: **97.12%**
+Stack
 
-## Run Backend
+Frontend — React, Axios, CSS
+Backend — FastAPI, Uvicorn
+ML — XGBoost, scikit-learn, pandas, joblib
+Deployment — Render
 
-```bash
-cd backend
+How it fits together
 
-source ../venv/bin/activate
+React dashboard → Axios request → FastAPI → XGBoost model → prediction → JSON response → back to dashboard
 
-python -m uvicorn api:app --reload
-```
+Running it locally
 
-## Run Frontend
+Clone the repo:
 
-```bash
-cd frontend
+bashgit clone https://github.com/YOUR_USERNAME/infrastructure-failure-prediction.git
 
+Install Python dependencies:
+
+bashpip install -r requirements.txt
+
+Start the backend:
+
+bashcd backend
+uvicorn api:app --reload
+
+Start the frontend:
+
+bashcd frontend
 npm install
-
 npm run dev
-```
 
-## Resume Description
 
-Developed a full-stack predictive maintenance platform using React, FastAPI, and XGBoost to analyze infrastructure telemetry and forecast server failures through REST APIs and interactive dashboards.
+Frontend: http://localhost:5173
+Backend: http://127.0.0.1:8000
+Swagger UI: http://127.0.0.1:8000/docs
+
+
+Author
+
+Rimmi
