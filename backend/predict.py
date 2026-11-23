@@ -1,9 +1,11 @@
-# src/predict.py
+from pathlib import Path
 
 import joblib
 import pandas as pd
 
-model = joblib.load("models/failure_model.pkl")
+MODEL_PATH = Path(__file__).resolve().parent / "models" / "failure_model.pkl"
+
+model = joblib.load(MODEL_PATH)
 
 sample = pd.DataFrame([{
     "cpu":95,

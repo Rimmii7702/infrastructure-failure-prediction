@@ -1,0 +1,449 @@
+{
+  "dataset": {
+    "path": "data/telemetry.csv",
+    "sha256": "d3004e5addf3035181fcbb9053fd65e5cf7e08cec531e8731083a1ab3aaac181",
+    "features": [
+      "cpu",
+      "memory",
+      "disk",
+      "temperature",
+      "network"
+    ],
+    "rows": 10000,
+    "positives": 30,
+    "negatives": 9970,
+    "positive_prevalence": 0.003
+  },
+  "environment": {
+    "python": "3.11.15",
+    "numpy": "2.4.6",
+    "pandas": "3.1.1",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.9.1",
+    "xgboost": "3.2.0",
+    "matplotlib": "3.11.2"
+  },
+  "configuration": {
+    "seed": 42,
+    "holdout_fraction": 0.2,
+    "stratified_cv_folds_on_training_partition": 5,
+    "positive_label": 1,
+    "classification_threshold": 0.5,
+    "confusion_matrix_label_order": [
+      0,
+      1
+    ],
+    "xgboost": {
+      "objective": "binary:logistic",
+      "eval_metric": "logloss",
+      "n_estimators": 100,
+      "tree_method": "hist",
+      "max_depth": 6,
+      "learning_rate": 0.3,
+      "random_state": 42,
+      "n_jobs": 1
+    },
+    "majority": {
+      "strategy": "most_frequent"
+    }
+  },
+  "split": {
+    "training": {
+      "rows": 8000,
+      "positives": 24,
+      "negatives": 7976,
+      "positive_prevalence": 0.003
+    },
+    "holdout": {
+      "rows": 2000,
+      "positives": 6,
+      "negatives": 1994,
+      "positive_prevalence": 0.003
+    }
+  },
+  "holdout_metrics": {
+    "xgboost": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "roc_auc": 1.0,
+      "average_precision": 1.0,
+      "confusion_matrix": [
+        [
+          1994,
+          0
+        ],
+        [
+          0,
+          6
+        ]
+      ]
+    },
+    "majority": {
+      "accuracy": 0.997,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "roc_auc": 0.5,
+      "average_precision": 0.003,
+      "confusion_matrix": [
+        [
+          1994,
+          0
+        ],
+        [
+          6,
+          0
+        ]
+      ]
+    }
+  },
+  "cross_validation": {
+    "folds": [
+      {
+        "fold": 1,
+        "training": {
+          "rows": 6400,
+          "positives": 20,
+          "negatives": 6380,
+          "positive_prevalence": 0.003125
+        },
+        "validation": {
+          "rows": 1600,
+          "positives": 4,
+          "negatives": 1596,
+          "positive_prevalence": 0.0025
+        },
+        "metrics": {
+          "xgboost": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "roc_auc": 1.0,
+            "average_precision": 1.0,
+            "confusion_matrix": [
+              [
+                1596,
+                0
+              ],
+              [
+                0,
+                4
+              ]
+            ]
+          },
+          "majority": {
+            "accuracy": 0.9975,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "roc_auc": 0.5,
+            "average_precision": 0.0025,
+            "confusion_matrix": [
+              [
+                1596,
+                0
+              ],
+              [
+                4,
+                0
+              ]
+            ]
+          }
+        }
+      },
+      {
+        "fold": 2,
+        "training": {
+          "rows": 6400,
+          "positives": 19,
+          "negatives": 6381,
+          "positive_prevalence": 0.00296875
+        },
+        "validation": {
+          "rows": 1600,
+          "positives": 5,
+          "negatives": 1595,
+          "positive_prevalence": 0.003125
+        },
+        "metrics": {
+          "xgboost": {
+            "accuracy": 0.999375,
+            "precision": 1.0,
+            "recall": 0.8,
+            "f1": 0.8888888888888888,
+            "roc_auc": 0.9986206896551724,
+            "average_precision": 0.8625,
+            "confusion_matrix": [
+              [
+                1595,
+                0
+              ],
+              [
+                1,
+                4
+              ]
+            ]
+          },
+          "majority": {
+            "accuracy": 0.996875,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "roc_auc": 0.5,
+            "average_precision": 0.003125,
+            "confusion_matrix": [
+              [
+                1595,
+                0
+              ],
+              [
+                5,
+                0
+              ]
+            ]
+          }
+        }
+      },
+      {
+        "fold": 3,
+        "training": {
+          "rows": 6400,
+          "positives": 19,
+          "negatives": 6381,
+          "positive_prevalence": 0.00296875
+        },
+        "validation": {
+          "rows": 1600,
+          "positives": 5,
+          "negatives": 1595,
+          "positive_prevalence": 0.003125
+        },
+        "metrics": {
+          "xgboost": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "roc_auc": 1.0,
+            "average_precision": 1.0,
+            "confusion_matrix": [
+              [
+                1595,
+                0
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          },
+          "majority": {
+            "accuracy": 0.996875,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "roc_auc": 0.5,
+            "average_precision": 0.003125,
+            "confusion_matrix": [
+              [
+                1595,
+                0
+              ],
+              [
+                5,
+                0
+              ]
+            ]
+          }
+        }
+      },
+      {
+        "fold": 4,
+        "training": {
+          "rows": 6400,
+          "positives": 19,
+          "negatives": 6381,
+          "positive_prevalence": 0.00296875
+        },
+        "validation": {
+          "rows": 1600,
+          "positives": 5,
+          "negatives": 1595,
+          "positive_prevalence": 0.003125
+        },
+        "metrics": {
+          "xgboost": {
+            "accuracy": 0.999375,
+            "precision": 1.0,
+            "recall": 0.8,
+            "f1": 0.8888888888888888,
+            "roc_auc": 0.9998746081504702,
+            "average_precision": 0.9666666666666667,
+            "confusion_matrix": [
+              [
+                1595,
+                0
+              ],
+              [
+                1,
+                4
+              ]
+            ]
+          },
+          "majority": {
+            "accuracy": 0.996875,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "roc_auc": 0.5,
+            "average_precision": 0.003125,
+            "confusion_matrix": [
+              [
+                1595,
+                0
+              ],
+              [
+                5,
+                0
+              ]
+            ]
+          }
+        }
+      },
+      {
+        "fold": 5,
+        "training": {
+          "rows": 6400,
+          "positives": 19,
+          "negatives": 6381,
+          "positive_prevalence": 0.00296875
+        },
+        "validation": {
+          "rows": 1600,
+          "positives": 5,
+          "negatives": 1595,
+          "positive_prevalence": 0.003125
+        },
+        "metrics": {
+          "xgboost": {
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "roc_auc": 1.0,
+            "average_precision": 1.0,
+            "confusion_matrix": [
+              [
+                1595,
+                0
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          },
+          "majority": {
+            "accuracy": 0.996875,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "roc_auc": 0.5,
+            "average_precision": 0.003125,
+            "confusion_matrix": [
+              [
+                1595,
+                0
+              ],
+              [
+                5,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    ],
+    "summary": {
+      "xgboost": {
+        "accuracy": {
+          "mean": 0.99975,
+          "std": 0.0003423265984407215,
+          "min": 0.999375,
+          "max": 1.0
+        },
+        "precision": {
+          "mean": 1.0,
+          "std": 0.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "recall": {
+          "mean": 0.9199999999999999,
+          "std": 0.1095445115010332,
+          "min": 0.8,
+          "max": 1.0
+        },
+        "f1": {
+          "mean": 0.9555555555555555,
+          "std": 0.060858061945018485,
+          "min": 0.8888888888888888,
+          "max": 1.0
+        },
+        "roc_auc": {
+          "mean": 0.9996990595611285,
+          "std": 0.0006052673798694735,
+          "min": 0.9986206896551724,
+          "max": 1.0
+        },
+        "average_precision": {
+          "mean": 0.9658333333333333,
+          "std": 0.05954106892632082,
+          "min": 0.8625,
+          "max": 1.0
+        }
+      },
+      "majority": {
+        "accuracy": {
+          "mean": 0.9970000000000001,
+          "std": 0.0002795084971875174,
+          "min": 0.996875,
+          "max": 0.9975
+        },
+        "precision": {
+          "mean": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "recall": {
+          "mean": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "f1": {
+          "mean": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "roc_auc": {
+          "mean": 0.5,
+          "std": 0.0,
+          "min": 0.5,
+          "max": 0.5
+        },
+        "average_precision": {
+          "mean": 0.003,
+          "std": 0.00027950849718747374,
+          "min": 0.0025,
+          "max": 0.003125
+        }
+      }
+    }
+  }
+}

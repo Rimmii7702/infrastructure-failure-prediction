@@ -1,7 +1,9 @@
-# src/generate_data.py
+from pathlib import Path
 
-import pandas as pd
 import numpy as np
+import pandas as pd
+
+DATA_PATH = Path(__file__).resolve().parents[1] / "data" / "telemetry.csv"
 
 np.random.seed(42)
 
@@ -28,6 +30,6 @@ df = pd.DataFrame({
     "failure": failure
 })
 
-df.to_csv("data/telemetry.csv",index=False)
+df.to_csv(DATA_PATH, index=False)
 
 print(df.head())
